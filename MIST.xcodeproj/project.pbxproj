@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CAD624F123CED35F0053AE5E /* WeatherDetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD624F023CED35E0053AE5E /* WeatherDetailButton.swift */; };
+		CAD624F423CEDB4E0053AE5E /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD624F323CEDB4E0053AE5E /* WeatherDetailViewController.swift */; };
 		CADD8BEA23CECF6800157F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD8BE923CECF6800157F3C /* AppDelegate.swift */; };
 		CADD8BEC23CECF6800157F3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD8BEB23CECF6800157F3C /* SceneDelegate.swift */; };
 		CADD8BEE23CECF6800157F3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD8BED23CECF6800157F3C /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		CAD624F023CED35E0053AE5E /* WeatherDetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailButton.swift; sourceTree = "<group>"; };
+		CAD624F323CEDB4E0053AE5E /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		CADD8BE623CECF6800157F3C /* MIST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD8BE923CECF6800157F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADD8BEB23CECF6800157F3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CAD624F223CEDB320053AE5E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CADD8BED23CECF6800157F3C /* ViewController.swift */,
+				CAD624F323CEDB4E0053AE5E /* WeatherDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		CADD8BDD23CECF6800157F3C = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +71,10 @@
 		CADD8BE823CECF6800157F3C /* MIST */ = {
 			isa = PBXGroup;
 			children = (
+				CAD624F223CEDB320053AE5E /* ViewControllers */,
 				CADD8BFD23CED06200157F3C /* Views */,
 				CADD8BE923CECF6800157F3C /* AppDelegate.swift */,
 				CADD8BEB23CECF6800157F3C /* SceneDelegate.swift */,
-				CADD8BED23CECF6800157F3C /* ViewController.swift */,
 				CADD8BEF23CECF6800157F3C /* Main.storyboard */,
 				CADD8BF223CECF6B00157F3C /* Assets.xcassets */,
 				CADD8BF423CECF6B00157F3C /* LaunchScreen.storyboard */,
@@ -152,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD624F423CEDB4E0053AE5E /* WeatherDetailViewController.swift in Sources */,
 				CAD624F123CED35F0053AE5E /* WeatherDetailButton.swift in Sources */,
 				CADD8BEE23CECF6800157F3C /* ViewController.swift in Sources */,
 				CADD8BEA23CECF6800157F3C /* AppDelegate.swift in Sources */,
