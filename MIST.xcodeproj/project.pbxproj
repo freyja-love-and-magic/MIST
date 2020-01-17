@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2A3A6823D1801200C52E42 /* BLEUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A3A6623D1801200C52E42 /* BLEUtils.swift */; };
+		CA2A3A6923D1801200C52E42 /* BLETwoWayCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A3A6723D1801200C52E42 /* BLETwoWayCentral.swift */; };
+		CA2A3A6B23D1825100C52E42 /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A3A6A23D1825100C52E42 /* BLEHandler.swift */; };
+		CA4E7F6323D0335D008885A3 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E7F6223D0335D008885A3 /* ShoppingViewController.swift */; };
 		CAD624F123CED35F0053AE5E /* WeatherDetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD624F023CED35E0053AE5E /* WeatherDetailButton.swift */; };
 		CAD624F423CEDB4E0053AE5E /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD624F323CEDB4E0053AE5E /* WeatherDetailViewController.swift */; };
 		CADD8BEA23CECF6800157F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD8BE923CECF6800157F3C /* AppDelegate.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA2A3A6623D1801200C52E42 /* BLEUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEUtils.swift; sourceTree = "<group>"; };
+		CA2A3A6723D1801200C52E42 /* BLETwoWayCentral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLETwoWayCentral.swift; sourceTree = "<group>"; };
+		CA2A3A6A23D1825100C52E42 /* BLEHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEHandler.swift; sourceTree = "<group>"; };
+		CA4E7F6223D0335D008885A3 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		CAD624F023CED35E0053AE5E /* WeatherDetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailButton.swift; sourceTree = "<group>"; };
 		CAD624F323CEDB4E0053AE5E /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		CADD8BE623CECF6800157F3C /* MIST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIST.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,11 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA2A3A6523D17FFB00C52E42 /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				CA2A3A6723D1801200C52E42 /* BLETwoWayCentral.swift */,
+				CA2A3A6623D1801200C52E42 /* BLEUtils.swift */,
+				CA2A3A6A23D1825100C52E42 /* BLEHandler.swift */,
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
 		CAD624F223CEDB320053AE5E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				CADD8BED23CECF6800157F3C /* ViewController.swift */,
 				CAD624F323CEDB4E0053AE5E /* WeatherDetailViewController.swift */,
+				CA4E7F6223D0335D008885A3 /* ShoppingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -71,6 +90,7 @@
 		CADD8BE823CECF6800157F3C /* MIST */ = {
 			isa = PBXGroup;
 			children = (
+				CA2A3A6523D17FFB00C52E42 /* BLE */,
 				CAD624F223CEDB320053AE5E /* ViewControllers */,
 				CADD8BFD23CED06200157F3C /* Views */,
 				CADD8BE923CECF6800157F3C /* AppDelegate.swift */,
@@ -165,8 +185,12 @@
 			files = (
 				CAD624F423CEDB4E0053AE5E /* WeatherDetailViewController.swift in Sources */,
 				CAD624F123CED35F0053AE5E /* WeatherDetailButton.swift in Sources */,
+				CA2A3A6B23D1825100C52E42 /* BLEHandler.swift in Sources */,
+				CA2A3A6923D1801200C52E42 /* BLETwoWayCentral.swift in Sources */,
+				CA4E7F6323D0335D008885A3 /* ShoppingViewController.swift in Sources */,
 				CADD8BEE23CECF6800157F3C /* ViewController.swift in Sources */,
 				CADD8BEA23CECF6800157F3C /* AppDelegate.swift in Sources */,
+				CA2A3A6823D1801200C52E42 /* BLEUtils.swift in Sources */,
 				CADD8BEC23CECF6800157F3C /* SceneDelegate.swift in Sources */,
 				CADD8BFF23CED06E00157F3C /* WeatherButton.swift in Sources */,
 			);
