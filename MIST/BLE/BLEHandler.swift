@@ -7,31 +7,50 @@
 //
 
 import Foundation
+import CoreBluetooth
 
 class BLEHandler {
     
-    weak var central: BLETwoWayCentral?
+    static var shared = BLEHandler()
+    static var isCheckout = false
     
-    init(_ central: BLETwoWayCentral) {
-        self.central = central
-        central.readCallback = readHandler(_:)
-        central.writeCallback = writeHandler
-        central.notifyCallback = notifyHandler(_:)
+    weak var peripheral: BLETwoWayPeripheral?
+    var viewController: BLEViewController?
+    
+    private init() {
+        
     }
     
-    func readHandler(_ value: String) {
-        print("Read value \(value)")
+    public func setPeripheral(_ peripheral: BLETwoWayPeripheral) {
+        self.peripheral = peripheral
+        peripheral.readCallback = readHandler
+        peripheral.writeCallback = writeHandler(_:_:)
+        peripheral.notifyCallback = notifyHandler
     }
     
-    func writeHandler() {
-        print("Value written")
+    private func readHandler() -> String {
+        print("received read request")
+        viewController?.log("received read request")
+        return BLEHandler.isCheckout ? "Checkout" : "Ready"
     }
     
-    func notifyHandler(_ value: String) {
-        print("Notify value \(value)")
+    private func writeHandler(_ value: String, _ central: CBCentral) {
+        print("Should write value")
+        print("With value \(value)")
+        DispatchQueue.main.async {
+            self.viewController?.log("Should write value \(value)")
+            self.viewController?.respondToValue(value)
+            
+        }
     }
     
-    func writeValue(value: String) {
-        central?.writeValue(value: value)
+    private func notifyHandler() -> String {
+        print("Should notify value")
+        viewController?.log("Should notify value")
+        return ""
+    }
+    
+    private func writeValue(value: String) {
+        print("IS this needed?")
     }
 }

@@ -37,4 +37,14 @@ class WeatherDetailViewController: UIViewController {
         self.navigationController?.view.layer.add(transition, forKey:nil)
         self.navigationController?.popViewController(animated: false)
     }
+    
+    override func accessibilityPerformEscape() -> Bool {
+        print("In perform escape")
+        let transition: CATransition = CATransition()
+        transition.duration = 0.2
+        transition.type = CATransitionType.fade
+        self.navigationController?.view.layer.add(transition, forKey:nil)
+        self.navigationController?.popViewController(animated: false)
+        return true
+    }
 }

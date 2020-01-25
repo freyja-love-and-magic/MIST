@@ -8,25 +8,73 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BLEViewController {
 
+    let userLabel = UILabel()
+    
     let weatherButton = WeatherButton()
     var weatherButtonCenterXConstraint: NSLayoutConstraint!
     var weatherButtonCenterYConstraint: NSLayoutConstraint!
     
     let moveToShoppingButton = UIButton()
+    
+    let logLabel = UILabel()
+    var logArray = [String]()
+    
+    let network = Network()
         
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addViews()
-        moveToShoppingButton.accessibilityUserInputLabels = ["shopping"]
+        moveToShoppingButton.accessibilityUserInputLabels = VoiceControl.addModifiersToUserInputLabels(labels: ["shopping"])
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    
+    public func respondToValue(_ value: String) {
+        network.getUser { data, error in
+            if let error = error {
+                print("Got an error \(error.localizedDescription)")
+                return
+            }
+            if let data = data {
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    UserModel().saveUserFromJSON(user: jsonString)
+                }
+            }
+            DispatchQueue.main.async {
+                self.displayUser()
+            }
+        }
+    }
+    
+    public func log(_ statement: String) {
+        logArray.append(statement)
+        while logArray.count > 4 {
+            logArray.remove(at: 0)
+        }
+        var text = ""
+        logArray.forEach { element in
+            text += element
+            text += "\n"
+        }
+        logLabel.text = text
+        print(statement)
+    }
 
-    func addViews() {
+    private func addViews() {
+        view.addSubview(userLabel)
         view.addSubview(weatherButton)
         view.addSubview(moveToShoppingButton)
+        view.addSubview(logLabel)
+        
+        userLabel.translatesAutoresizingMaskIntoConstraints = false
+        userLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -150).isActive = true
+        userLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        userLabel.centerYAnchor.constraint(equalTo: self.view.topAnchor, constant: 185).isActive = true
+        userLabel.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        userLabel.numberOfLines = 0
+        userLabel.lineBreakMode = .byWordWrapping
         
         weatherButton.translatesAutoresizingMaskIntoConstraints = false
         //weatherButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
@@ -43,9 +91,27 @@ class ViewController: UIViewController {
         moveToShoppingButton.backgroundColor = UIColor.green
         moveToShoppingButton.frame = CGRect(x: 40, y: 400, width: 100, height: 100)
         moveToShoppingButton.addTarget(self, action: #selector(moveToShoppingTapped(_:)), for: .touchUpInside)
+        moveToShoppingButton.accessibilityUserInputLabels = VoiceControl.addModifiersToUserInputLabels(labels: ["shopping"])
+        
+        logLabel.translatesAutoresizingMaskIntoConstraints = false
+        logLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logLabel.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -300).isActive = true
+        logLabel.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        logLabel.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        logLabel.numberOfLines = 0
+        logLabel.lineBreakMode = .byWordWrapping
+        log("Ready to start logging")
     }
     
-    @objc func weatherTapped(_ sender: UIButton) {
+    private func displayUser() {
+        if let user = UserModel().getUser() {
+            userLabel.text = "Hello \(user.name)\nYou have \(user.nineum.count) Nineum."
+            userLabel.backgroundColor = .cyan
+        }
+    }
+    
+     @objc private func weatherTapped(_ sender: UIButton) {
         print(sender)
         let wdvc = WeatherDetailViewController()
         let transition: CATransition = CATransition()
@@ -55,7 +121,7 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(wdvc, animated: false)
     }
     
-    @objc func moveToShoppingTapped(_ sender: UIButton) {
+    @objc private func moveToShoppingTapped(_ sender: UIButton) {
         let shoppingVC = ShoppingViewController()
         self.navigationController?.pushViewController(shoppingVC, animated: false)
     }
