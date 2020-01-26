@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController, BLEViewController {
 
@@ -22,6 +23,8 @@ class ViewController: UIViewController, BLEViewController {
     var logArray = [String]()
     
     let network = Network()
+    
+    var emitter: SKEmitterNode?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,7 @@ class ViewController: UIViewController, BLEViewController {
         addViews()
         moveToShoppingButton.accessibilityUserInputLabels = VoiceControl.addModifiersToUserInputLabels(labels: ["shopping"])
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        emitter = SKEmitterNode(fileNamed: "MagicParticle.sks")
     }
     
     public func respondToValue(_ value: String) {
@@ -87,6 +91,7 @@ class ViewController: UIViewController, BLEViewController {
         weatherButton.heightAnchor.constraint(equalToConstant: 300).isActive = true
         
         weatherButton.addTarget(self, action: #selector(weatherTapped(_:)), for: .touchUpInside)
+        weatherButton.backgroundColor = UIColor.green
         
         moveToShoppingButton.backgroundColor = UIColor.green
         moveToShoppingButton.frame = CGRect(x: 40, y: 400, width: 100, height: 100)
@@ -113,12 +118,25 @@ class ViewController: UIViewController, BLEViewController {
     
      @objc private func weatherTapped(_ sender: UIButton) {
         print(sender)
-        let wdvc = WeatherDetailViewController()
+        /*let wdvc = WeatherDetailViewController()
         let transition: CATransition = CATransition()
         transition.duration = 0.2
         transition.type = CATransitionType.fade
         self.navigationController?.view.layer.add(transition, forKey:nil)
-        self.navigationController?.pushViewController(wdvc, animated: false)
+        self.navigationController?.pushViewController(wdvc, animated: false)*/
+        /*let scene = SKScene(size: CGSize(width: sender.frame.width, height: sender.frame.height))
+        
+        if let emitter = emitter {
+            emitter.particleLifetime = 0.2
+            emitter.numParticlesToEmit = 400
+            scene.addChild(emitter)
+            let skView = SKView(frame: sender.frame)
+            view.addSubview(skView)
+            skView.presentScene(scene)
+        }*/
+        
+        sender.explode()
+        
     }
     
     @objc private func moveToShoppingTapped(_ sender: UIButton) {
@@ -127,3 +145,14 @@ class ViewController: UIViewController, BLEViewController {
     }
 }
 
+extension UIView {
+
+    // Using a function since `var image` might conflict with an existing variable
+    // (like on `UIImageView`)
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}
