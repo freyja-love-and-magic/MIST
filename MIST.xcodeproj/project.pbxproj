@@ -16,6 +16,7 @@
 		CA0BFD0523DD24B700BE43C1 /* GridSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BFD0423DD24B700BE43C1 /* GridSize.swift */; };
 		CA2A3A6923D1801200C52E42 /* BLETwoWayCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A3A6723D1801200C52E42 /* BLETwoWayCentral.swift */; };
 		CA2A3A6B23D1825100C52E42 /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A3A6A23D1825100C52E42 /* BLEHandler.swift */; };
+		CA38B24B23E2A3C700A497E0 /* GatewayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA38B24A23E2A3C700A497E0 /* GatewayModel.swift */; };
 		CA4E7F6323D0335D008885A3 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E7F6223D0335D008885A3 /* ShoppingViewController.swift */; };
 		CA5ECC0D23D3716E00836A1B /* BLETwoWayPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5ECC0B23D3716E00836A1B /* BLETwoWayPeripheral.swift */; };
 		CA5ECC0E23D3716E00836A1B /* BLEUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5ECC0C23D3716E00836A1B /* BLEUtils.swift */; };
@@ -47,6 +48,7 @@
 		CA0BFD0423DD24B700BE43C1 /* GridSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridSize.swift; sourceTree = "<group>"; };
 		CA2A3A6723D1801200C52E42 /* BLETwoWayCentral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLETwoWayCentral.swift; sourceTree = "<group>"; };
 		CA2A3A6A23D1825100C52E42 /* BLEHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEHandler.swift; sourceTree = "<group>"; };
+		CA38B24A23E2A3C700A497E0 /* GatewayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayModel.swift; sourceTree = "<group>"; };
 		CA4E7F6223D0335D008885A3 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		CA5ECC0B23D3716E00836A1B /* BLETwoWayPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLETwoWayPeripheral.swift; sourceTree = "<group>"; };
 		CA5ECC0C23D3716E00836A1B /* BLEUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BLEUtils.swift; path = ../../../PlanetNineGateway/PlanetNineGateway/BLE/BLEUtils.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				CAC2CA6523D5788D0050256E /* UserModel.swift */,
+				CA38B24A23E2A3C700A497E0 /* GatewayModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				CA63B09E23D64CE7007454EC /* BodyTrackingGestures.swift in Sources */,
 				CA4E7F6323D0335D008885A3 /* ShoppingViewController.swift in Sources */,
 				CADD8BEE23CECF6800157F3C /* ViewController.swift in Sources */,
+				CA38B24B23E2A3C700A497E0 /* GatewayModel.swift in Sources */,
 				CA63B0A423D66E3E007454EC /* CheckoutViewController.swift in Sources */,
 				CADD8BEA23CECF6800157F3C /* AppDelegate.swift in Sources */,
 				CA5ECC0D23D3716E00836A1B /* BLETwoWayPeripheral.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 
 class ViewController: UIViewController, BLEViewController {
-
+    
     let userLabel = UILabel()
     
     let weatherButton = WeatherButton()
@@ -36,18 +36,18 @@ class ViewController: UIViewController, BLEViewController {
     }
     
     public func respondToValue(_ value: String) {
-        network.getUser { data, error in
-            if let error = error {
-                print("Got an error \(error.localizedDescription)")
-                return
-            }
-            if let data = data {
-                if let jsonString = String(data: data, encoding: .utf8) {
-                    UserModel().saveUserFromJSON(user: jsonString)
+        if let magicGetUserGateway = GatewayModel.magicGetUserGateway(from: value) {
+            network.getUserById(userId: magicGetUserGateway.userId, gatewayName: magicGetUserGateway.gatewayName, timestamp: magicGetUserGateway.timestamp, signature: magicGetUserGateway.signature) { error, data in
+                if let error = error {
+                    print("Error getting user \(error)")
+                    return
                 }
-            }
-            DispatchQueue.main.async {
-                self.displayUser()
+                if let data = data {
+                    UserModel().saveUserFromJSON(user: String(data: data, encoding: .utf8) ?? "")
+                    self.displayUser()
+                } else {
+                    print("Got no error or data")
+                }
             }
         }
     }
@@ -135,7 +135,7 @@ class ViewController: UIViewController, BLEViewController {
             skView.presentScene(scene)
         }*/
         
-        sender.explode()
+        sender.mist()
         
     }
     

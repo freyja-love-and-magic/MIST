@@ -85,7 +85,10 @@ class BLETwoWayPeripheral: NSObject, CBPeripheralManagerDelegate {
         
         manager.add(service)
         
-        manager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [service.uuid]])
+        manager.startAdvertising([
+            CBAdvertisementDataServiceUUIDsKey: [service.uuid],
+            CBAdvertisementDataLocalNameKey: "MIST" // Put unique names here 
+        ])
     }
     
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
