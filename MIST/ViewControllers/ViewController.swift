@@ -11,14 +11,14 @@ import SpriteKit
 
 class ViewController: UIViewController, BLEViewController {
     
-    let userLabel = UILabel()
+    var foreground: UIView!
+    var background: UIView!
     
-    let weatherButton = WeatherButton()
-    var weatherButtonCenterXConstraint: NSLayoutConstraint!
-    var weatherButtonCenterYConstraint: NSLayoutConstraint!
+    var weatherWidget: WidgetView!
+    var newsWidget: WidgetView!
     
-    let moveToShoppingButton = UIButton()
-    
+    var clothzDetail = MistableButton()
+        
     let logLabel = UILabel()
     var logArray = [String]()
     
@@ -30,9 +30,14 @@ class ViewController: UIViewController, BLEViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addViews()
-        moveToShoppingButton.accessibilityUserInputLabels = VoiceControl.addModifiersToUserInputLabels(labels: ["shopping"])
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         emitter = SKEmitterNode(fileNamed: "MagicParticle.sks")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        weatherWidget.savedScreenshot = weatherWidget.screenshot
+        newsWidget.savedScreenshot = newsWidget.screenshot
+        clothzDetail.savedScreenshot = clothzDetail.screenshot
     }
     
     public func respondToValue(_ value: String) {
@@ -67,36 +72,39 @@ class ViewController: UIViewController, BLEViewController {
     }
 
     private func addViews() {
-        view.addSubview(userLabel)
-        view.addSubview(weatherButton)
-        view.addSubview(moveToShoppingButton)
-        view.addSubview(logLabel)
+        foreground = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        foreground.backgroundColor = UIColor.white
+        background = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         
-        userLabel.translatesAutoresizingMaskIntoConstraints = false
-        userLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -150).isActive = true
-        userLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
-        userLabel.centerYAnchor.constraint(equalTo: self.view.topAnchor, constant: 185).isActive = true
-        userLabel.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        userLabel.numberOfLines = 0
-        userLabel.lineBreakMode = .byWordWrapping
+        view.addSubview(background)
+        view.addSubview(foreground)
         
-        weatherButton.translatesAutoresizingMaskIntoConstraints = false
-        //weatherButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
-        weatherButtonCenterXConstraint = weatherButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 150)
-            weatherButtonCenterXConstraint.isActive = true
-        weatherButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
-        //weatherButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60).isActive = true
-        weatherButtonCenterYConstraint = weatherButton.centerYAnchor.constraint(equalTo: self.view.topAnchor, constant: 185)
-            weatherButtonCenterYConstraint.isActive = true
-        weatherButton.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        foreground.addSubview(logLabel)
         
-        weatherButton.addTarget(self, action: #selector(weatherTapped(_:)), for: .touchUpInside)
-        weatherButton.backgroundColor = UIColor.green
+        weatherWidget = WidgetView(widgetName: "Weather", widgetContent: UIView())
+        foreground.addSubview(weatherWidget)
         
-        moveToShoppingButton.backgroundColor = UIColor.green
-        moveToShoppingButton.frame = CGRect(x: 40, y: 400, width: 100, height: 100)
-        moveToShoppingButton.addTarget(self, action: #selector(moveToShoppingTapped(_:)), for: .touchUpInside)
-        moveToShoppingButton.accessibilityUserInputLabels = VoiceControl.addModifiersToUserInputLabels(labels: ["shopping"])
+        weatherWidget.translatesAutoresizingMaskIntoConstraints = false
+        weatherWidget.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 18).isActive = true
+        weatherWidget.topAnchor.constraint(equalTo: view.topAnchor, constant: 151).isActive = true
+        weatherWidget.widthAnchor.constraint(equalToConstant: 266).isActive = true
+        weatherWidget.heightAnchor.constraint(equalToConstant: 292).isActive = true
+        
+        weatherWidget.addTarget(self, action: #selector(weatherTapped(_:)), for: .touchUpInside)
+        
+        newsWidget = WidgetView(widgetName: "News", widgetContent: UIView())
+        foreground.addSubview(newsWidget)
+        
+        newsWidget.translatesAutoresizingMaskIntoConstraints = false
+        newsWidget.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 18).isActive = true
+        newsWidget.topAnchor.constraint(equalTo: weatherWidget.bottomAnchor, constant: 15).isActive = true
+        newsWidget.widthAnchor.constraint(equalToConstant: 266).isActive = true
+        newsWidget.heightAnchor.constraint(equalToConstant: 292).isActive = true
+        
+        background.addSubview(clothzDetail)
+        clothzDetail.backgroundColor = UIColor.PlanetNineColors.primary
+        clothzDetail.setTitle("HEYOOOO", for: .normal)
+        clothzDetail.frame = CGRect(x: 200, y: 200, width: 200, height: 100)
         
         logLabel.translatesAutoresizingMaskIntoConstraints = false
         logLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -111,32 +119,21 @@ class ViewController: UIViewController, BLEViewController {
     
     private func displayUser() {
         if let user = UserModel().getUser() {
-            userLabel.text = "Hello \(user.name)\nYou have \(user.nineum.count) Nineum."
-            userLabel.backgroundColor = .cyan
+            
         }
     }
     
      @objc private func weatherTapped(_ sender: UIButton) {
         print(sender)
-        /*let wdvc = WeatherDetailViewController()
-        let transition: CATransition = CATransition()
-        transition.duration = 0.2
-        transition.type = CATransitionType.fade
-        self.navigationController?.view.layer.add(transition, forKey:nil)
-        self.navigationController?.pushViewController(wdvc, animated: false)*/
-        /*let scene = SKScene(size: CGSize(width: sender.frame.width, height: sender.frame.height))
-        
-        if let emitter = emitter {
-            emitter.particleLifetime = 0.2
-            emitter.numParticlesToEmit = 400
-            scene.addChild(emitter)
-            let skView = SKView(frame: sender.frame)
-            view.addSubview(skView)
-            skView.presentScene(scene)
-        }*/
-        
+        newsWidget.isHidden = false
+        background.isHidden = true
+        clothzDetail.isHidden = true
         sender.mist()
-        
+        newsWidget.mist {
+            self.foreground.isHidden = true
+            self.background.isHidden = false
+            self.clothzDetail.mistIn()
+        }
     }
     
     @objc private func moveToShoppingTapped(_ sender: UIButton) {

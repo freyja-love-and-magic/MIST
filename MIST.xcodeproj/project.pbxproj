@@ -17,9 +17,11 @@
 		CA2A3A6923D1801200C52E42 /* BLETwoWayCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A3A6723D1801200C52E42 /* BLETwoWayCentral.swift */; };
 		CA2A3A6B23D1825100C52E42 /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A3A6A23D1825100C52E42 /* BLEHandler.swift */; };
 		CA38B24B23E2A3C700A497E0 /* GatewayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA38B24A23E2A3C700A497E0 /* GatewayModel.swift */; };
+		CA38B24F23E5405B00A497E0 /* MistableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA38B24E23E5405B00A497E0 /* MistableViews.swift */; };
 		CA4E7F6323D0335D008885A3 /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E7F6223D0335D008885A3 /* ShoppingViewController.swift */; };
 		CA5ECC0D23D3716E00836A1B /* BLETwoWayPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5ECC0B23D3716E00836A1B /* BLETwoWayPeripheral.swift */; };
 		CA5ECC0E23D3716E00836A1B /* BLEUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5ECC0C23D3716E00836A1B /* BLEUtils.swift */; };
+		CA6294FB23E544B80091DEA3 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6294FA23E544B80091DEA3 /* WidgetView.swift */; };
 		CA63B09E23D64CE7007454EC /* BodyTrackingGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63B09D23D64CE7007454EC /* BodyTrackingGestures.swift */; };
 		CA63B0A423D66E3E007454EC /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63B0A323D66E3E007454EC /* CheckoutViewController.swift */; };
 		CA6FD4F723D6C01500100659 /* shirt.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6FD4F623D6C01500100659 /* shirt.png */; };
@@ -49,9 +51,11 @@
 		CA2A3A6723D1801200C52E42 /* BLETwoWayCentral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLETwoWayCentral.swift; sourceTree = "<group>"; };
 		CA2A3A6A23D1825100C52E42 /* BLEHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEHandler.swift; sourceTree = "<group>"; };
 		CA38B24A23E2A3C700A497E0 /* GatewayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayModel.swift; sourceTree = "<group>"; };
+		CA38B24E23E5405B00A497E0 /* MistableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistableViews.swift; sourceTree = "<group>"; };
 		CA4E7F6223D0335D008885A3 /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		CA5ECC0B23D3716E00836A1B /* BLETwoWayPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLETwoWayPeripheral.swift; sourceTree = "<group>"; };
 		CA5ECC0C23D3716E00836A1B /* BLEUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BLEUtils.swift; path = ../../../PlanetNineGateway/PlanetNineGateway/BLE/BLEUtils.swift; sourceTree = "<group>"; };
+		CA6294FA23E544B80091DEA3 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		CA63B09D23D64CE7007454EC /* BodyTrackingGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyTrackingGestures.swift; sourceTree = "<group>"; };
 		CA63B0A323D66E3E007454EC /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		CA6FD4F623D6C01500100659 /* shirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt.png; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 			children = (
 				CADD8BFE23CED06E00157F3C /* WeatherButton.swift */,
 				CAD624F023CED35E0053AE5E /* WeatherDetailButton.swift */,
+				CA38B24E23E5405B00A497E0 /* MistableViews.swift */,
+				CA6294FA23E544B80091DEA3 /* WidgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6294FB23E544B80091DEA3 /* WidgetView.swift in Sources */,
+				CA38B24F23E5405B00A497E0 /* MistableViews.swift in Sources */,
 				CA0BFD0523DD24B700BE43C1 /* GridSize.swift in Sources */,
 				CAC2CA6923D578FE0050256E /* Network.swift in Sources */,
 				CAD624F423CEDB4E0053AE5E /* WeatherDetailViewController.swift in Sources */,
