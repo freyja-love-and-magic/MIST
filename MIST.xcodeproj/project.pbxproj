@@ -22,6 +22,11 @@
 		CA5ECC0D23D3716E00836A1B /* BLETwoWayPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5ECC0B23D3716E00836A1B /* BLETwoWayPeripheral.swift */; };
 		CA5ECC0E23D3716E00836A1B /* BLEUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5ECC0C23D3716E00836A1B /* BLEUtils.swift */; };
 		CA6294FB23E544B80091DEA3 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6294FA23E544B80091DEA3 /* WidgetView.swift */; };
+		CA6294FD23E5EEFA0091DEA3 /* ClothzDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6294FC23E5EEFA0091DEA3 /* ClothzDetailView.swift */; };
+		CA62950023E5F07A0091DEA3 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6294FF23E5F07A0091DEA3 /* CartButton.swift */; };
+		CA62950223E5F1AD0091DEA3 /* PhraseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62950123E5F1AD0091DEA3 /* PhraseButton.swift */; };
+		CA62950423E6099E0091DEA3 /* MistableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62950323E6099E0091DEA3 /* MistableViewController.swift */; };
+		CA62950623E60BB00091DEA3 /* ClothzDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62950523E60BB00091DEA3 /* ClothzDetailViewController.swift */; };
 		CA63B09E23D64CE7007454EC /* BodyTrackingGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63B09D23D64CE7007454EC /* BodyTrackingGestures.swift */; };
 		CA63B0A423D66E3E007454EC /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63B0A323D66E3E007454EC /* CheckoutViewController.swift */; };
 		CA6FD4F723D6C01500100659 /* shirt.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6FD4F623D6C01500100659 /* shirt.png */; };
@@ -56,6 +61,11 @@
 		CA5ECC0B23D3716E00836A1B /* BLETwoWayPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLETwoWayPeripheral.swift; sourceTree = "<group>"; };
 		CA5ECC0C23D3716E00836A1B /* BLEUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BLEUtils.swift; path = ../../../PlanetNineGateway/PlanetNineGateway/BLE/BLEUtils.swift; sourceTree = "<group>"; };
 		CA6294FA23E544B80091DEA3 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		CA6294FC23E5EEFA0091DEA3 /* ClothzDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothzDetailView.swift; sourceTree = "<group>"; };
+		CA6294FF23E5F07A0091DEA3 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		CA62950123E5F1AD0091DEA3 /* PhraseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseButton.swift; sourceTree = "<group>"; };
+		CA62950323E6099E0091DEA3 /* MistableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistableViewController.swift; sourceTree = "<group>"; };
+		CA62950523E60BB00091DEA3 /* ClothzDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothzDetailViewController.swift; sourceTree = "<group>"; };
 		CA63B09D23D64CE7007454EC /* BodyTrackingGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyTrackingGestures.swift; sourceTree = "<group>"; };
 		CA63B0A323D66E3E007454EC /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		CA6FD4F623D6C01500100659 /* shirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt.png; sourceTree = "<group>"; };
@@ -117,6 +127,15 @@
 			path = BLE;
 			sourceTree = "<group>";
 		};
+		CA6294FE23E5F0640091DEA3 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				CA6294FF23E5F07A0091DEA3 /* CartButton.swift */,
+				CA62950123E5F1AD0091DEA3 /* PhraseButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		CA63B09C23D64CCE007454EC /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +181,8 @@
 				CAD624F323CEDB4E0053AE5E /* WeatherDetailViewController.swift */,
 				CA4E7F6223D0335D008885A3 /* ShoppingViewController.swift */,
 				CA63B0A323D66E3E007454EC /* CheckoutViewController.swift */,
+				CA62950323E6099E0091DEA3 /* MistableViewController.swift */,
+				CA62950523E60BB00091DEA3 /* ClothzDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -206,10 +227,12 @@
 		CADD8BFD23CED06200157F3C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA6294FE23E5F0640091DEA3 /* Buttons */,
 				CADD8BFE23CED06E00157F3C /* WeatherButton.swift */,
 				CAD624F023CED35E0053AE5E /* WeatherDetailButton.swift */,
 				CA38B24E23E5405B00A497E0 /* MistableViews.swift */,
 				CA6294FA23E544B80091DEA3 /* WidgetView.swift */,
+				CA6294FC23E5EEFA0091DEA3 /* ClothzDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,9 +328,14 @@
 				CA63B09E23D64CE7007454EC /* BodyTrackingGestures.swift in Sources */,
 				CA4E7F6323D0335D008885A3 /* ShoppingViewController.swift in Sources */,
 				CADD8BEE23CECF6800157F3C /* ViewController.swift in Sources */,
+				CA6294FD23E5EEFA0091DEA3 /* ClothzDetailView.swift in Sources */,
 				CA38B24B23E2A3C700A497E0 /* GatewayModel.swift in Sources */,
 				CA63B0A423D66E3E007454EC /* CheckoutViewController.swift in Sources */,
+				CA62950423E6099E0091DEA3 /* MistableViewController.swift in Sources */,
+				CA62950223E5F1AD0091DEA3 /* PhraseButton.swift in Sources */,
+				CA62950023E5F07A0091DEA3 /* CartButton.swift in Sources */,
 				CADD8BEA23CECF6800157F3C /* AppDelegate.swift in Sources */,
+				CA62950623E60BB00091DEA3 /* ClothzDetailViewController.swift in Sources */,
 				CA5ECC0D23D3716E00836A1B /* BLETwoWayPeripheral.swift in Sources */,
 				CADD8BEC23CECF6800157F3C /* SceneDelegate.swift in Sources */,
 				CAC2CA6623D5788D0050256E /* UserModel.swift in Sources */,

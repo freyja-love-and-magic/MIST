@@ -174,7 +174,7 @@ public extension UIView {
 
             let opacityAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
             opacityAnimation.beginTime = CACurrentMediaTime() + (0.01...0.3).random()
-            opacityAnimation.duration = (0.3...0.7).random()
+            opacityAnimation.duration = (0.1...0.8).random()
             opacityAnimation.fillMode = CAMediaTimingFillMode.forwards
             opacityAnimation.isCumulative = true
             opacityAnimation.isRemovedOnCompletion = false
@@ -185,7 +185,7 @@ public extension UIView {
             
             let maskAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.cornerRadius))
             maskAnimation.beginTime = CACurrentMediaTime()
-            maskAnimation.duration = (0.2...0.6).random()
+            maskAnimation.duration = (0.5...1.0).random()
             maskAnimation.fillMode = CAMediaTimingFillMode.forwards
             maskAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             maskAnimation.fromValue = pieceLayer.frame.height * 2
