@@ -27,6 +27,8 @@
 		CA62950223E5F1AD0091DEA3 /* PhraseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62950123E5F1AD0091DEA3 /* PhraseButton.swift */; };
 		CA62950423E6099E0091DEA3 /* MistableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62950323E6099E0091DEA3 /* MistableViewController.swift */; };
 		CA62950623E60BB00091DEA3 /* ClothzDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62950523E60BB00091DEA3 /* ClothzDetailViewController.swift */; };
+		CA62950823E67C4E0091DEA3 /* TryOnClothzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62950723E67C4E0091DEA3 /* TryOnClothzViewController.swift */; };
+		CA62950A23E67CE70091DEA3 /* TryOnClothzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA62950923E67CE70091DEA3 /* TryOnClothzView.swift */; };
 		CA63B09E23D64CE7007454EC /* BodyTrackingGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63B09D23D64CE7007454EC /* BodyTrackingGestures.swift */; };
 		CA63B0A423D66E3E007454EC /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA63B0A323D66E3E007454EC /* CheckoutViewController.swift */; };
 		CA6FD4F723D6C01500100659 /* shirt.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6FD4F623D6C01500100659 /* shirt.png */; };
@@ -66,6 +68,8 @@
 		CA62950123E5F1AD0091DEA3 /* PhraseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseButton.swift; sourceTree = "<group>"; };
 		CA62950323E6099E0091DEA3 /* MistableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistableViewController.swift; sourceTree = "<group>"; };
 		CA62950523E60BB00091DEA3 /* ClothzDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothzDetailViewController.swift; sourceTree = "<group>"; };
+		CA62950723E67C4E0091DEA3 /* TryOnClothzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryOnClothzViewController.swift; sourceTree = "<group>"; };
+		CA62950923E67CE70091DEA3 /* TryOnClothzView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryOnClothzView.swift; sourceTree = "<group>"; };
 		CA63B09D23D64CE7007454EC /* BodyTrackingGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyTrackingGestures.swift; sourceTree = "<group>"; };
 		CA63B0A323D66E3E007454EC /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		CA6FD4F623D6C01500100659 /* shirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shirt.png; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				CA63B0A323D66E3E007454EC /* CheckoutViewController.swift */,
 				CA62950323E6099E0091DEA3 /* MistableViewController.swift */,
 				CA62950523E60BB00091DEA3 /* ClothzDetailViewController.swift */,
+				CA62950723E67C4E0091DEA3 /* TryOnClothzViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				CA38B24E23E5405B00A497E0 /* MistableViews.swift */,
 				CA6294FA23E544B80091DEA3 /* WidgetView.swift */,
 				CA6294FC23E5EEFA0091DEA3 /* ClothzDetailView.swift */,
+				CA62950923E67CE70091DEA3 /* TryOnClothzView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA6294FB23E544B80091DEA3 /* WidgetView.swift in Sources */,
+				CA62950823E67C4E0091DEA3 /* TryOnClothzViewController.swift in Sources */,
 				CA38B24F23E5405B00A497E0 /* MistableViews.swift in Sources */,
 				CA0BFD0523DD24B700BE43C1 /* GridSize.swift in Sources */,
 				CAC2CA6923D578FE0050256E /* Network.swift in Sources */,
@@ -341,6 +348,7 @@
 				CAC2CA6623D5788D0050256E /* UserModel.swift in Sources */,
 				CADD8BFF23CED06E00157F3C /* WeatherButton.swift in Sources */,
 				CA0BFD0323DD245300BE43C1 /* MistTransition.swift in Sources */,
+				CA62950A23E67CE70091DEA3 /* TryOnClothzView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

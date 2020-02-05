@@ -55,7 +55,7 @@ class MistableViewController: UIViewController {
     }
     
     func startMist() {
-        mistableView.savedScreenshot = mistableView.screenshot
+        mistableView.savedScreenshot = mistableView.savedScreenshot == nil ? mistableView.screenshot : mistableView.savedScreenshot
         print("saved screenshot: \(mistableView.savedScreenshot)")
         //mistableView.isHidden = true
         coverView.isHidden = true

@@ -9,9 +9,14 @@
 import Foundation
 import UIKit
 
+protocol ClothzDetailViewDelegate {
+    func homeButtonTapped()
+    func collectionViewItemTapped(item: UICollectionViewCell)
+}
+
 class ClothzDetailView: MistableUIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
+    let delegate: ClothzDetailViewDelegate
     let homeButton = MistableButton()
     let detailNameLabel = MistableLabel()
     let cartButton = CartButton()
@@ -23,9 +28,10 @@ class ClothzDetailView: MistableUIView, UICollectionViewDelegate, UICollectionVi
     let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), collectionViewLayout: UICollectionViewFlowLayout())
     let showMoreButton = PhraseButton(phrase: "Show More")
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, delegate: ClothzDetailViewDelegate) {
+        self.delegate = delegate
         super.init(frame: frame)
-
+        
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         addViews()
     }
@@ -54,6 +60,11 @@ class ClothzDetailView: MistableUIView, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 252, height: 292)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        delegate.collectionViewItemTapped(item: cell)
     }
     
     private func addViews() {
@@ -138,6 +149,7 @@ class ClothzDetailView: MistableUIView, UICollectionViewDelegate, UICollectionVi
     
     @objc private func homeButtonTapped(_ sender: UIButton) {
         print("Home button tapped")
+        delegate.homeButtonTapped()
     }
     
 }

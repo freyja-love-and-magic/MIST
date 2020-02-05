@@ -21,7 +21,7 @@ class ViewController: UIViewController, BLEViewController {
     var planetNineWidget: WidgetView!
     
     var weatherDetail = WeatherDetailButton()
-    var clothzDetail = ClothzDetailView()
+    //var clothzDetail = ClothzDetailView()
         
     let logLabel = UILabel()
     var logArray = [String]()
@@ -42,9 +42,15 @@ class ViewController: UIViewController, BLEViewController {
         weatherWidget.savedScreenshot = weatherWidget.screenshot
         newsWidget.savedScreenshot = newsWidget.screenshot
         weatherDetail.savedScreenshot = weatherDetail.screenshot
-        clothzDetail.savedScreenshot = clothzDetail.screenshot
+        //clothzDetail.savedScreenshot = clothzDetail.screenshot
         //foreground.savedScreenshot = foreground.screenshot
         //background.savedScreenshot = background.screenshot
+        if foreground.alpha < 1.0 {
+            clothzWidget.isHidden = false
+            UIView.animate(withDuration: 1.0, animations: {
+                self.foreground.alpha = 1.0
+            })
+        }
     }
     
     public func respondToValue(_ value: String) {
@@ -162,8 +168,8 @@ class ViewController: UIViewController, BLEViewController {
         weatherDetail.rightAnchor.constraint(equalTo: background.rightAnchor, constant: 18).isActive = true
         weatherDetail.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: 18).isActive = true
         
-        background.addSubview(clothzDetail)
-        clothzDetail.frame = background.frame
+        //background.addSubview(clothzDetail)
+        //clothzDetail.frame = background.frame
     }
     
     private func displayUser() {
@@ -173,7 +179,7 @@ class ViewController: UIViewController, BLEViewController {
     }
     
     private func hideDetails() {
-        clothzDetail.isHidden = true
+        //clothzDetail.isHidden = true
         weatherDetail.isHidden = true
     }
     

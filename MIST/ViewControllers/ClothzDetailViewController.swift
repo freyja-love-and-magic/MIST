@@ -9,19 +9,26 @@
 import Foundation
 import UIKit
 
-class ClothzDetailViewController: MistableViewController {
-    
-    let clothzDetailView = ClothzDetailView()
+class ClothzDetailViewController: MistableViewController, ClothzDetailViewDelegate {
+
+    var clothzDetailView: ClothzDetailView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        clothzDetailView = ClothzDetailView(frame: self.view.frame, delegate: self)
         mistableView.addSubview(clothzDetailView)
-        clothzDetailView.frame = view.frame
-        /*clothzDetailView.translatesAutoresizingMaskIntoConstraints = false
-        clothzDetailView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        clothzDetailView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        clothzDetailView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        clothzDetailView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true*/
+    }
+    
+    func homeButtonTapped() {
+        self.navigationController?.popViewController(animated: false)
+    }
+    
+    func collectionViewItemTapped(item: UICollectionViewCell) {
+        print("Item tapped with \(item)")
+        mistableView.mist {
+            let tryOnClothzVC = TryOnClothzViewController()
+            self.navigationController?.pushViewController(tryOnClothzVC, animated: false)
+        }
     }
 }
