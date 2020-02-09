@@ -11,6 +11,7 @@ import UIKit
 
 protocol TryOnClothzViewDelegate {
     func homeButtonTapped()
+    func checkoutTapped()
 }
 
 class TryOnClothzView: MistableUIView {
@@ -24,7 +25,7 @@ class TryOnClothzView: MistableUIView {
     let phraseOneButton = PhraseButton(phrase: "See fullscreen")
     let phraseTwoButton = PhraseButton(phrase: "Next color")
     let phraseThreeButton = PhraseButton(phrase: "Add to cart")
-    let tryOnView = MistableUIView()
+    let tryOnView = MistableButton()
     let showMoreButton = PhraseButton(phrase: "Show More")
     
     init(frame: CGRect, delegate: TryOnClothzViewDelegate) {
@@ -111,6 +112,7 @@ class TryOnClothzView: MistableUIView {
         tryOnView.topAnchor.constraint(equalTo: self.topAnchor, constant: 286).isActive = true
         tryOnView.heightAnchor.constraint(equalToConstant: 599).isActive = true
         tryOnView.backgroundColor = UIColor.PlanetNineColors.secondary
+        tryOnView.addTarget(self, action: #selector(checkoutTapped(_:)), for: .touchUpInside)
         
         showMoreButton.translatesAutoresizingMaskIntoConstraints = false
         showMoreButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -125,4 +127,7 @@ class TryOnClothzView: MistableUIView {
         delegate.homeButtonTapped()
     }
     
+    @objc private func checkoutTapped(_ sender: UIButton) {
+        delegate.checkoutTapped()
+    }
 }

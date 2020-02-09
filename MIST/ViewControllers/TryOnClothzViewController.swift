@@ -23,5 +23,10 @@ class TryOnClothzViewController: MistableViewController, TryOnClothzViewDelegate
         self.navigationController?.popViewController(animated: false)
     }
     
-    
+    func checkoutTapped() {
+        mistableView.mist {
+            let checkoutVC = CheckoutViewController()
+            self.navigationController?.pushViewController(checkoutVC, animated: false)
+        }
+    }
 }
